@@ -1,0 +1,5 @@
+/* Initial hiding */
+.hidden{display:none}
+article,aside,figure,footer,header,hgroup,nav,section{display:block}
+header{text-align: center}
+/* article{text-align: center} */
