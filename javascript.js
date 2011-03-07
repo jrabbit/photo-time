@@ -1,8 +1,10 @@
 var film;
-var steps = [prewet,developer,waterrinse, stop,waterrinse,fixer,waterrinse,fixer,hypo,waterbath];
+var steps = [prewet,developer,waterrinse, stop,waterrinse,fixer,waterrinse,hypo,waterbath];
+var recycle = {developer: false, stop: true, fixer: true, hypo: false}
 var reels = 1;
 const temp = 68;
 var currentStep;
+
 /*[function() { return "alpha"; }, function() { return "bravo"; }][0]() */
 
 function hideElement(id){
@@ -11,6 +13,7 @@ function hideElement(id){
 function showElement(id){
     document.getElementById(id).style.display = 'block';
 }
+
 function start(){
     hideElement('button1');
     showElement('film-select');
@@ -24,6 +27,7 @@ function next(){
     steps[currentStep + 1]()
     currentStep = ++currentStep
 }
+
 function prewet(){}
 function waterrinse(){}
 function stop(){}
