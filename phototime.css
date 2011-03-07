@@ -1,5 +1,7 @@
 /* Initial hiding */
 .hidden{display:none}
+.instruction{display:none}
+.next{display:none}
 article,aside,figure,footer,header,hgroup,nav,section{display:block}
 header{text-align: center}
 /* article{text-align: center} */

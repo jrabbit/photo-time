@@ -18,11 +18,13 @@
     </header>
     <article>
       <button name="start" id="button1" onClick='start()'>Develop Film Now!</button>
-      <select class='hidden' id="film-select">
+      <select class='hidden' id="film-select" onChange="directionsDeveloper()">
+        <option value="none">--Select Your Film--</option>
         <option value="k9000">Kodak 9000</option>
         <option value="toaster">Toaster</option>
       </select>
-      <p class='hidden'>
+      <p class='instruction' id="k9000">To develop Kodak 9000 film dunk the tank into a ring of fire and agitate for 60 seconds.</p>
+      <button class='next' id="n1" onClick='developer()'>Start Developer</button>
     </article>
   </body>
 </html>
