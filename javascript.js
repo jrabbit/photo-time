@@ -37,9 +37,18 @@ function next(){
 function prewet(){}
 function waterrinse(){}
 function stop(){}
-function fixer(){}
-function hypo(){}
-function waterbath(){}
+function fixer(){
+    end = Date.now() + 5*1000*60
+    setInterval(countdown, 1000)
+}
+function hypo(){
+    end = Date.now() + 2.5*1000*60
+    setInterval(countdown, 1000)
+}
+function waterbath(){
+    end = Date.now() + 5*1000*60
+    setInterval(countdown, 1000)
+}
 function developer(){
     var time = {k9000: 6,toaster: 6, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
     var recycle = false;
