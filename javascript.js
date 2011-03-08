@@ -54,14 +54,19 @@ function waterbath(){
     setInterval(countdown, 1000);
 }
 function developer(){
-    var time = {k9000: 6,toaster: .1, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
+    var time = {k9000: 6,toaster: .3, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
     var recycle = false;
     hideElement('n0')
     end = Date.now() + (time[film]*1000*60);
-    if (end - Date.now() > 0)
-        setInterval(countdown, 1000);
-   // hideElement('timer');
-   // end = 0;
+    
+    var devo = setInterval(countdown, 1000);
+    
+    if (end - Date.now() < 0){
+    
+    clearInterval(devo);
+    hideElement('timer');
+    end = 0;
+    }
 }
 
 function resolveTime(wait){
