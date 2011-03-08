@@ -5,6 +5,8 @@ var reels = 1;
 const temp = 68;
 var currentStep = 0;
 
+var end;
+
 /*[function() { return "alpha"; }, function() { return "bravo"; }][0]() */
 
 function hideElement(id){
@@ -25,7 +27,6 @@ function directionsDeveloper(){
     hideElement('film-select');
     showElement('n0');
     showElement('timer');
-    setInterval('developer()', 1000)
 }
 function next(){
     steps[currentStep + 1]()
@@ -42,7 +43,8 @@ function waterbath(){}
 function developer(){
     var time = {k9000: 6,toaster: 6, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
     var recycle = false;
-    countdown(time[film]);
+    end = Date.now() + (time[film]*1000*60);
+    setInterval('countdown()', 1000)
 }
 
 function resolveTime(wait){
@@ -54,7 +56,6 @@ function resolveTime(wait){
 function countdown(min){
 /* take # minutes and display a countdown */
     var curtime = Date.now();
-    var end = curtime + (min*1000*60);
     var wait = end - curtime;
     document.getElementById('timer').innerHTML = resolveTime(wait) ;
 }
