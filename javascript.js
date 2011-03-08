@@ -76,7 +76,8 @@ function resolveTime(wait){
 }
 function countdown(){
 /* take # minutes and display a countdown */
-    var curtime = Date.now();
+    var t = new Date()
+    var curtime  = t.getTime()
     var wait = end - curtime;
     if (wait < 0){
         clearInterval(devo);
