@@ -58,15 +58,10 @@ function developer(){
     var recycle = false;
     hideElement('n0')
     end = Date.now() + (time[film]*1000*60);
-    do
-    { 
+    if (end - Date.now() > 0)
         setInterval(countdown, 1000);
-    } while (end - Date.now() > 0);
-    if (end - Date.now() =< 0)
-    {
-        hideElement('timer');
-        end = 0;
-    }
+   // hideElement('timer');
+   // end = 0;
 }
 
 function resolveTime(wait){
