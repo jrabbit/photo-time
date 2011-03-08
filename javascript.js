@@ -2,7 +2,7 @@ var film;
 var steps = [prewet,developer,waterrinse, stop,waterrinse,fixer,waterrinse,hypo,waterbath];
 var recycle = {developer: false, stop: true, fixer: true, hypo: false}
 var reels = 1;
-const temp = 68;
+var temp = 68;
 var currentStep = 0;
 
 var end;
