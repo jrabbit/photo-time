@@ -2,6 +2,9 @@
 .hidden{display:none}
 .instruction{display:none}
 .next{display:none}
+.timer{display:none}
+
 article,aside,figure,footer,header,hgroup,nav,section{display:block}
-header{text-align: center}
+header{text-align: center;
+font-family: 'IM Fell Great Primer SC', serif;}
 /* article{text-align: center} */
