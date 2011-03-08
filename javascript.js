@@ -6,6 +6,7 @@ var temp = 68;
 var currentStep = 0;
 
 var end;
+var devo;
 
 /*[function() { return "alpha"; }, function() { return "bravo"; }][0]() */
 
@@ -59,14 +60,9 @@ function developer(){
     hideElement('n0')
     end = Date.now() + (time[film]*1000*60);
     
-    var devo = setInterval(countdown, 1000);
+    devo = setInterval(countdown, 1000);
     
-    if (end - Date.now() < 0){
-    
-    clearInterval(devo);
-    hideElement('timer');
-    end = 0;
-    }
+
 }
 
 function resolveTime(wait){
@@ -79,9 +75,14 @@ function resolveTime(wait){
     }
     return min + ":" +wait_sec
 }
-function countdown(min){
+function countdown(){
 /* take # minutes and display a countdown */
     var curtime = Date.now();
     var wait = end - curtime;
+    if (wait < 0){
+        clearInterval(devo);
+        hideElement('timer');
+        end = 0;
+    }
     document.getElementById('timer').innerHTML = resolveTime(wait) ;
 }
