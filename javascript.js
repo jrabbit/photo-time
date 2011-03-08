@@ -1,3 +1,4 @@
+// GPLv3 Jrabbit (C) 2011
 var film;
 var steps = [prewet,developer,waterrinse, stop,waterrinse,fixer,waterrinse,hypo,waterbath];
 var recycle = {developer: false, stop: true, fixer: true, hypo: false}
@@ -36,17 +37,20 @@ function next(){
 
 function prewet(){}
 function waterrinse(){}
-function stop(){}
+function stop(){
+    end = Date.now() + 1000*30 // 30 seconds
+    setInterval(countdown, 1000)
+}
 function fixer(){
-    end = Date.now() + 5*1000*60
+    end = Date.now() + 5*1000*60 // 5 Minutes
     setInterval(countdown, 1000)
 }
 function hypo(){
-    end = Date.now() + 2.5*1000*60
+    end = Date.now() + 2.5*1000*60 // 2:30
     setInterval(countdown, 1000)
 }
 function waterbath(){
-    end = Date.now() + 5*1000*60
+    end = Date.now() + 5*1000*60 // 5 Minutes
     setInterval(countdown, 1000)
 }
 function developer(){
