@@ -43,6 +43,7 @@ function waterbath(){}
 function developer(){
     var time = {k9000: 6,toaster: 6, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
     var recycle = false;
+    hideElement('n0')
     end = Date.now() + (time[film]*1000*60);
     setInterval(countdown, 1000)
 }
@@ -51,6 +52,8 @@ function resolveTime(wait){
     min = Math.floor( wait / (1000*60))
     secs  = Math.floor( wait / 1000 );
     wait_sec = secs - min * 60;
+    if (wait_sec < 10){
+        wait_sec="0"+wait_sec}
     return min + ":" +wait_sec
 }
 function countdown(min){
