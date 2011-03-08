@@ -62,6 +62,11 @@ function developer(){
     { 
         setInterval(countdown, 1000);
     } while (end - Date.now() > 0);
+    if (end - Date.now() =< 0)
+    {
+        hideElement('timer');
+        end = 0;
+    }
 }
 
 function resolveTime(wait){
