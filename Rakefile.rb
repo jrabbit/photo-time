@@ -10,5 +10,6 @@ task :copy do
   puts "linking..."
   for file in ['favicon.ico',  'index.html',  'javascript.js',  'phototime.css'] do
     cmd = "ln -s #{file} Android/assets/www/#{file}"
+    system cmd
   end
 end
