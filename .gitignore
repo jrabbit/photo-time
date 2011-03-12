@@ -11,3 +11,7 @@
 # generated GUI files
 *R.java
 local.properties
+Android/assets/www/favicon.ico
+Android/assets/www/index.html
+Android/assets/www/javascript.js
+Android/assets/www/phototime.css
