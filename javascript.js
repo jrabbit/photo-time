@@ -16,6 +16,7 @@ function start(){
 
 }
 $(document).ready(function() {
+    //setup film select list
     $('#film-select').change(function directionsDeveloper(){
         film = $('#film-select').val();
         $('#developer').show();
@@ -23,6 +24,7 @@ $(document).ready(function() {
         $('#film-select').hide();
         $('#timer').show();
     });
+    // Hide Buttons
     $('.next').click(function next(){
         steps[currentStep + 1]();
         $('#n'+currentStep).show();
