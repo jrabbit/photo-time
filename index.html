@@ -24,7 +24,7 @@
     </header>
     <article>
       <button name="start" id="button1" onClick='start()'>Develop Film Now!</button>
-      <select class='hidden' id="film-select" onChange="directionsDeveloper()">
+      <select class='hidden' id="film-select">
         <option value="none">--Select Your Film--</option>
         <option value="k100">Kodak T-Max 100</option>
         <option value="k400">Kodal T-Max 400</option>
@@ -41,9 +41,9 @@
       </select>
       <p class='instruction' id="developer">To develop Kodak 9000 film dunk the tank into a ring of fire and agitate for 60 seconds.</p>
       
-      <button class='next' id="n0" onClick='developer()'>Start Developer</button>
-      <button class='next' id="n1" onClick='next()'>Water Rinse'd!</button>
-      <button class='next' id="n2" onClick='next()'>Begin Stop Bath</button>
+      <button class='hidden' id="n0" onClick='developer()'>Start Developer</button>
+      <button class='next' id="n1">Water Rinse'd!</button>
+      <button class='next' id="n2">Begin Stop Bath</button>
     </article>
   </body>
 </html>

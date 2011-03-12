@@ -15,19 +15,22 @@ function start(){
     $('#film-select').show();
 
 }
-function directionsDeveloper(){
-    film = $('#film-select').val()
-    $('#developer').show();
-    $('#n0').show();
-    $('#film-select').hide();
-    $('#timer').show();
-}
-function next(){
-    steps[currentStep + 1]();
-    $('#n'+currentStep).show();
-    $('#n'+(currentStep -1)).hide();
-    currentStep = ++currentStep;
-}
+$(document).ready(function() {
+    $('#film-select').change(function directionsDeveloper(){
+        film = $('#film-select').val();
+        $('#developer').show();
+        $('#n0').show();
+        $('#film-select').hide();
+        $('#timer').show();
+    });
+    $('.next').click(function next(){
+        steps[currentStep + 1]();
+        $('#n'+currentStep).show();
+        $('#n'+(currentStep -1)).hide();
+        currentStep = ++currentStep;
+    });
+});
+
 
 function prewet(){} // No.
 function waterrinse(){} // Are you kidding me?
