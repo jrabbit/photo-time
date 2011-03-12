@@ -10,29 +10,22 @@ var devo;
 
 /*[function() { return "alpha"; }, function() { return "bravo"; }][0]() */
 
-function hideElement(id){
-    document.getElementById(id).style.display = 'none';
-}
-function showElement(id){
-    document.getElementById(id).style.display = 'block';
-}
-
 function start(){
-    hideElement('button1');
-    showElement('film-select');
+    $('#button1').hide();
+    $('#film-select').show();
 
 }
 function directionsDeveloper(){
-    film = document.getElementById('film-select').value;
-    showElement('developer');
-    hideElement('film-select');
-    showElement('n0');
-    showElement('timer');
+    film = $('#film-select').val()
+    $('#developer').show();
+    $('#n0').show();
+    $('#film-select').hide();
+    $('#timer').show();
 }
 function next(){
     steps[currentStep + 1]();
-    showElement('n' + currentStep);
-    hideElement('n' + (currentStep -1));
+    $('#n'+currentStep).show();
+    $('#n'+(currentStep -1)).hide();
     currentStep = ++currentStep;
 }
 
@@ -57,7 +50,7 @@ function waterbath(){
 function developer(){
     var time = {k9000: 6,toaster: .3, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
     var recycle = false;
-    hideElement('n0');
+    $('#n0').hide();
     end = Date.now() + (time[film]*1000*60);
     devo = setInterval(countdown, 1000);
     
@@ -81,8 +74,8 @@ function countdown(){
     var wait = end - curtime;
     if (wait < 0){
         clearInterval(devo);
-        hideElement('timer');
+        $('#timer').hide()
         end = 0;
     }
-    document.getElementById('timer').innerHTML = resolveTime(wait) ;
+    $('#timer').html(resolveTime(wait));
 }
