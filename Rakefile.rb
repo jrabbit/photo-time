@@ -8,7 +8,9 @@ end
 desc "Link JS/CSS/HTML into device resources"
 task :copy do
   puts "linking..."
-  for file in ['favicon.ico',  'index.html',  'javascript.js',  'phototime.css', 'head.min.js', 'jquery-1.5.1.min.js'] do
+  Dir[Dir.pwd]
+  # Files other than *.r* *.m*
+  for file in Dir.glob("*.[^r|^m]*") do
     cmd = "ln #{file} Android/assets/www/#{file}"
     system cmd
   end
