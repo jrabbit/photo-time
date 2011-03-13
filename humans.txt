@@ -1,0 +1,11 @@
+Jrabbit:
+	Twitter: @Jackolas
+	Github: https://github.com/jrabbit
+	
+The Site:
+
+Coded in Javascript, with jQuery, Head.js and HTML5Shiv. 
+The font is "IM Fell Great Primer SC" by Igino Marini.
+The source vector art in the public domain from which the icon was composed:
+  * http://commons.wikimedia.org/wiki/File:Camera-photo.svg
+  * http://commons.wikimedia.org/wiki/File:Modern_clock_chris_kemps_01.svg
