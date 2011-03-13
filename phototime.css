@@ -7,3 +7,5 @@ article,aside,figure,footer,header,hgroup,nav,section{display:block}
 header{text-align: center;
 font-family: 'IM Fell Great Primer SC', serif;}
 /* article{text-align: center} */
+footer{text-align: center; position:relative;bottom:100%;
+}
