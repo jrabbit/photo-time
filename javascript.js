@@ -31,6 +31,10 @@ $(document).ready(function() {
         $('#n'+(currentStep -1)).hide();
         currentStep = ++currentStep;
     });
+    $(window).konami(function(){
+        //alert('Konami Code Activated');
+        main();
+    });
 });
 
 
