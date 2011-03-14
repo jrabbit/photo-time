@@ -25,45 +25,80 @@ $(document).ready(function() {
         $('#timer').show();
     });
     // Hide Buttons
-    $('.next').click(function next(){
-        steps[currentStep + 1]();
-        $('#n'+currentStep).show();
-        $('#n'+(currentStep -1)).hide();
-        currentStep = ++currentStep;
-    });
+    $('.next').click(next);
     $(window).konami(function(){
         //alert('Konami Code Activated');
         main();
     });
 });
 
-
 function prewet(){} // No.
 function waterrinse(){} // Are you kidding me?
 function stop(){
-    end = Date.now() + 1000*30; // 30 seconds
-    setInterval(countdown, 1000);
+    end = Date.now() + (1000*30); // 30 seconds
+    devo = setInterval(countdown, 1000);
 }
 function fixer(){
-    end = Date.now() + 5*1000*60; // 5 Minutes
-    setInterval(countdown, 1000);
+    end = Date.now() + (5*1000*60); // 5 Minutes
+    devo = setInterval(countdown, 1000);
 }
 function hypo(){
-    end = Date.now() + 2.5*1000*60; // 2:30
-    setInterval(countdown, 1000);
+    end = Date.now() + (2.5*1000*60); // 2:30
+    devo = setInterval(countdown, 1000);
 }
 function waterbath(){
-    end = Date.now() + 5*1000*60; // 5 Minutes
-    setInterval(countdown, 1000);
+    end = Date.now() + (5*1000*60); // 5 Minutes
+    devo = setInterval(countdown, 1000);
 }
 function developer(){
     var time = {k9000: 6,toaster: .3, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
     var recycle = false;
-    $('#n0').hide();
+   // $('#n0').hide();
     end = Date.now() + (time[film]*1000*60);
     devo = setInterval(countdown, 1000);
-    
+}
 
+function shake(time, seconds){
+    // interval  = (seconds * 1000);
+    // if Math.abs(1 - (time / interval))
+    //if wait_sec == 30{
+    //notify()
+    //}
+    
+}
+
+function RequestPermission(callback) {
+    window.webkitNotifications.requestPermission(callback);
+}
+
+function notify(){
+    if (typeof(PhoneGap) == "undefined"){
+        //Non Phone notification methods
+        if (/chrome/.test( navigator.userAgent.toLowerCase() )){
+            console.log("chrome detected")
+            //broken chrome notifications
+            if (window.webkitNotifications.checkPermission() > 0) {
+                RequestPermission(notify);
+            } 
+            else{
+                notification = window.webkitNotifications.createNotification("favicon.ico", "Photo Time!", "SHAKE AND BAKE");
+                notification.show();
+            }
+        }
+    }
+    // end non-phone work
+    else{
+        navigator.notification.beep(2);
+        navigator.notification.vibrate(2000);
+    }
+}
+
+function next(){
+    steps[currentStep + 1]();
+    $('#n'+currentStep).show();
+    $('#n'+(currentStep -1)).hide();
+    currentStep = ++currentStep;
+    $('#timer').show();
 }
 
 function resolveTime(wait){
@@ -83,8 +118,10 @@ function countdown(){
     var wait = end - curtime;
     if (wait < 0){
         clearInterval(devo);
-        $('#timer').hide()
-        end = 0;
+        $('#timer').hide();
+        delete end;
+        delete devo;
+        next();
     }
     $('#timer').html(resolveTime(wait));
 }
