@@ -33,7 +33,7 @@ $(document).ready(function() {
         //alert('Konami Code Activated');
         main();
     if (/chrome/.test( navigator.userAgent.toLowerCase() )){
-        if (!window.webkitNotifications.checkPermission() === 0){
+        if (window.webkitNotifications.checkPermission() !== 0){
             $('.auth').show();}
     }
     });
