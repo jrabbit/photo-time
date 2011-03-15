@@ -29,6 +29,9 @@ $(document).ready(function() {
     $(window).konami(function(){
         //alert('Konami Code Activated');
         main();
+    if (/chrome/.test( navigator.userAgent.toLowerCase() )){
+        if (!window.webkitNotifications.checkPermission() === 0){$('.auth').show();}
+    }
     });
 });
 
@@ -71,7 +74,7 @@ function RequestPermission(callback) {
     window.webkitNotifications.requestPermission(callback);
 }
 
-function notify(){
+function notify(words){
     if (typeof(PhoneGap) == "undefined"){
         //Non Phone notification methods
         if (/chrome/.test( navigator.userAgent.toLowerCase() )){
@@ -81,7 +84,7 @@ function notify(){
                 RequestPermission(notify);
             } 
             else{
-                notification = window.webkitNotifications.createNotification("favicon.ico", "Photo Time!", "SHAKE AND BAKE");
+                notification = window.webkitNotifications.createNotification("favicon.ico", "Photo Time!", words);
                 notification.show();
             }
         }
