@@ -13,7 +13,6 @@ var devo;
 function start(){
     $('#button1').hide();
     $('#film-select').show();
-
 }
 $(document).ready(function() {
     //setup film select list
@@ -30,7 +29,8 @@ $(document).ready(function() {
         //alert('Konami Code Activated');
         main();
     if (/chrome/.test( navigator.userAgent.toLowerCase() )){
-        if (!window.webkitNotifications.checkPermission() === 0){$('.auth').show();}
+        if (!window.webkitNotifications.checkPermission() === 0){
+            $('.auth').show();}
     }
     });
 });
