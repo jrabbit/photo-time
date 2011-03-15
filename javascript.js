@@ -1,11 +1,8 @@
 var film;
-
 var reels = 1;
 var temp = 68;
 var currentStep = 0;
-
-var end;
-var devo;
+var time;
 
 /*[function() { return "alpha"; }, function() { return "bravo"; }][0]() */
 
@@ -57,12 +54,12 @@ function countdown(){
 /* take # minutes and display a countdown */
     var t = new Date();
     var curtime  = t.getTime();
-    var wait = end - curtime;
+    var wait = time.end - curtime;
     if (wait < 0){
-        clearInterval(devo);
+        clearInterval(time.devo);
         $('#timer').hide();
-        delete end;
-        delete devo;
+        delete time.end;
+        delete time.devo;
         next();
     }
     $('#timer').html(resolveTime(wait));
@@ -71,27 +68,27 @@ function countdown(){
 function prewet(){} // No.
 function waterrinse(){} // Are you kidding me?
 function stop(){
-    end = Date.now() + (1000*30); // 30 seconds
-    devo = setInterval(countdown, 1000);
+    time.end = Date.now() + (1000*30); // 30 seconds
+    time.devo = setInterval(countdown, 1000);
 }
 function fixer(){
-    end = Date.now() + (5*1000*60); // 5 Minutes
-    devo = setInterval(countdown, 1000);
+    time.end = Date.now() + (5*1000*60); // 5 Minutes
+    time.devo = setInterval(countdown, 1000);
 }
 function hypo(){
-    end = Date.now() + (2.5*1000*60); // 2:30
-    devo = setInterval(countdown, 1000);
+    time.end = Date.now() + (2.5*1000*60); // 2:30
+    time.devo = setInterval(countdown, 1000);
 }
 function waterbath(){
-    end = Date.now() + (5*1000*60); // 5 Minutes
-    devo = setInterval(countdown, 1000);
+    time.end = Date.now() + (5*1000*60); // 5 Minutes
+    time.devo = setInterval(countdown, 1000);
 }
 function developer(){
     var time = {k9000: 6,toaster: 0.3, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5};
     var recycle = false;
    // $('#n0').hide();
-    end = Date.now() + (time[film]*1000*60);
-    devo = setInterval(countdown, 1000);
+    time.end = Date.now() + (time[film]*1000*60);
+    time.devo = setInterval(countdown, 1000);
 }
 
 function shake(time, seconds){
