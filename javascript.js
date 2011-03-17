@@ -4,7 +4,8 @@ var recycle = {developer: false, stop: true, fixer: true, hypo: false};
 var reels = 1;
 var temp = 68;
 var currentStep = 0;
-var time;
+var end;
+var devo;
 
 /*[function() { return "alpha"; }, function() { return "bravo"; }][0]() */
 
@@ -58,12 +59,12 @@ function countdown(){
 /* take # minutes and display a countdown */
     var t = new Date();
     var curtime  = t.getTime();
-    var wait = time.end - curtime;
+    var wait = end - curtime;
     if (wait < 0){
-        clearInterval(time.devo);
+        clearInterval(devo);
         $('#timer').hide();
-        delete time.end;
-        delete time.devo;
+        delete end;
+        delete devo;
         next();
     }
     $('#timer').html(resolveTime(wait));
@@ -72,27 +73,27 @@ function countdown(){
 function prewet(){} // No.
 function waterrinse(){} // Are you kidding me?
 function stop(){
-    time.end = Date.now() + (1000*30); // 30 seconds
-    time.devo = setInterval(countdown, 1000);
+    end = Date.now() + (1000*30); // 30 seconds
+    devo = setInterval(countdown, 1000);
 }
 function fixer(){
-    time.end = Date.now() + (5*1000*60); // 5 Minutes
-    time.devo = setInterval(countdown, 1000);
+    end = Date.now() + (5*1000*60); // 5 Minutes
+    devo = setInterval(countdown, 1000);
 }
 function hypo(){
-    time.end = Date.now() + (2.5*1000*60); // 2:30
-    time.devo = setInterval(countdown, 1000);
+    end = Date.now() + (2.5*1000*60); // 2:30
+    devo = setInterval(countdown, 1000);
 }
 function waterbath(){
-    time.end = Date.now() + (5*1000*60); // 5 Minutes
-    time.devo = setInterval(countdown, 1000);
+    end = Date.now() + (5*1000*60); // 5 Minutes
+    devo = setInterval(countdown, 1000);
 }
 function developer(){
     var time = {k9000: 6,toaster: .3, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
     var recycle = false;
    // $('#n0').hide();
-    time.end = Date.now() + (time[film]*1000*60);
-    time.devo = setInterval(countdown, 1000);
+    end = Date.now() + (time[film]*1000*60);
+    devo = setInterval(countdown, 1000);
 }
 
 function shake(time, seconds){
