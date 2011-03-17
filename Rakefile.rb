@@ -1,7 +1,7 @@
 task :default => [:android]
 
 desc "Build and install android version"
-task :android do
+task :android => [:rm,:copy] do
   `cd Android && /usr/bin/ant install`
 end
 
