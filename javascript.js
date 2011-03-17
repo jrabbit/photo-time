@@ -1,4 +1,6 @@
 var film;
+var steps = [prewet,developer,waterrinse, stop,waterrinse,fixer,waterrinse,hypo,waterbath];
+var recycle = {developer: false, stop: true, fixer: true, hypo: false};
 var reels = 1;
 var temp = 68;
 var currentStep = 0;
@@ -10,6 +12,8 @@ function start(){
     $('#button1').hide();
     $('#film-select').show();
 }
+
+
 function next(){
     steps[currentStep + 1]();
     $('#n'+currentStep).show();
@@ -84,7 +88,7 @@ function waterbath(){
     time.devo = setInterval(countdown, 1000);
 }
 function developer(){
-    var time = {k9000: 6,toaster: 0.3, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5};
+    var time = {k9000: 6,toaster: .3, hps400: 8, fp4125:7,delta3200:7,delta100:7,k100:7,k400:8,ktri400:8, a400:8, ilf400:7.5}
     var recycle = false;
    // $('#n0').hide();
     time.end = Date.now() + (time[film]*1000*60);
@@ -105,10 +109,10 @@ function RequestPermission(callback) {
 }
 
 function notify(words){
-    if (typeof(PhoneGap) === "undefined"){
+    if (typeof(PhoneGap) == "undefined"){
         //Non Phone notification methods
         if (/chrome/.test( navigator.userAgent.toLowerCase() )){
-            console.log("chrome detected");
+            console.log("chrome detected")
             //broken chrome notifications
             if (window.webkitNotifications.checkPermission() > 0) {
                 RequestPermission(notify);
@@ -126,5 +130,4 @@ function notify(words){
     }
 }
 
-var steps = [prewet,developer,waterrinse, stop,waterrinse,fixer,waterrinse,hypo,waterbath];
-var recycle = {developer: false, stop: true, fixer: true, hypo: false};
+
