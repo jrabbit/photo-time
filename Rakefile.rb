@@ -1,7 +1,7 @@
 task :default => [:android]
 
 desc "Build and install android version"
-task :android => [:rm,:copy] do
+task :android => [:copy] do
   `cd Android && /usr/bin/ant install`
 end
 
@@ -15,9 +15,9 @@ task :copy do
   end
 end
 
-task :rm do
-  Dir["Android/assets/www/"]
-  for file in Dir.glob("*[^phonegap].[^r|^m]*") do
-    system "rm #{file}"
-  end
-end
+# task :rm do
+#   Dir["Android/assets/www/"]
+#   for file in Dir.glob("*[^phonegap].[^r|^m]*") do
+#     system "rm #{file}"
+#   end
+# end
