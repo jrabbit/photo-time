@@ -1,12 +1,59 @@
-/* Initial hiding */
-.hidden{display:none}
-.instruction{display:none}
-.next{display:none}
-.timer{display:none}
-article,aside,figure,footer,header,hgroup,nav,section{display:block}
-header{text-align: center;
-font-family: 'IM Fell Great Primer SC', serif;}
-/* article{text-align: center} */
-.auth{display:none}
-footer{text-align: center; position:relative;bottom:100%;
+/* GOOGLE FONTS API */
+@import url("http://fonts.googleapis.com/css?family=IM+Fell+Great+Primer+SC:regular");
+
+/* INITIAL HIDING */
+
+.hidden {
+	display: none;
+}
+
+.instruction {
+	display: none;
+}
+
+.next {
+	display: none;
+}
+ 
+.timer{
+	display: none;
+}
+
+/* BUTTONS & FORM FIELDS */
+
+#film-select {
+	margin-left: 25%;
+	width: 50%;
+}
+
+/* EVERYTHING ELSE */
+
+article, aside, figure, footer, header, hgroup, nav, section {
+	display: block;
+}
+
+header {
+	text-align: center;
+	font-family: 'IM Fell Great Primer SC', serif;
+}
+
+/* article {
+	text-align: center;
+} */
+
+.auth {
+	display: none;
+}
+
+footer {
+	border-top: 1px solid #000;
+	background-color: #fff;
+	bottom: 0;
+	height: 20px;
+	margin: 0;
+	margin-left: -8px;
+	padding: 6px 0 4px 0;
+	position: fixed;
+	text-align: center;
+	width: 100%;
 }
