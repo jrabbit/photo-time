@@ -13,11 +13,11 @@ task :copy do
     cmd = "cp #{file} Android/assets/www/#{file}"
     system cmd
   end
+  #copy folders.
+  for folder in ['js','css'] do
+    Dir[Dir.pwd + '/' + folder]
+    for file in Dir.glob("*.*") do
+      system "cp #{file} Android/assets/www/#{folder}/#{file}"
+    end
+  end
 end
-
-# task :rm do
-#   Dir["Android/assets/www/"]
-#   for file in Dir.glob("*[^phonegap].[^r|^m]*") do
-#     system "rm #{file}"
-#   end
-# end
