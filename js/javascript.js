@@ -17,7 +17,7 @@ function start(){
 
 function next(){
     steps[currentStep + 1]();
-    $('#n'+currentStep).show();
+    $('#n'+currentStep).show().button();
     $('#n'+(currentStep -1)).hide();
     currentStep = ++currentStep;
     $('#timer').show();
@@ -28,7 +28,7 @@ $(document).ready(function() {
     $('#film-select').change(function directionsDeveloper(){
         film = $('#film-select').val();
         $('#developer').show();
-        $('#n0').show();
+        $('#n0').show().button();
         $('#film-select').hide();
         $('#timer').show();
     });
@@ -71,7 +71,9 @@ function countdown(){
 }
 
 function prewet(){} // No.
-function waterrinse(){} // Are you kidding me?
+function waterrinse(){
+    $('#timer').hide()
+}
 function stop(){
     end = Date.now() + (1000*30); // 30 seconds
     devo = setInterval(countdown, 1000);
